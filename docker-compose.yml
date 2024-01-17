@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  nine-ai:
+    build: .
+    container_name: nine-ai
+    restart: unless-stopped
+    ports:
+      - 9520:9520
+    environment:
+      - JWT_SECRET=chat-cooper
+      # mysql
+      - MYSQL_HOST=localhost
+      - MYSQL_PORT=3306
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=chat-nine-ai-pass
+      - MYSQL_DATABASE=chatgpt
+      # Redis
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=chat-nine-ai-pass
